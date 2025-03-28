@@ -118,13 +118,21 @@ These metrics provide a comprehensive evaluation of retrieval performance, balan
 | Multi-aspect  | 30-40 tokens, 9-11 overlap, 2 chunks | Greater coverage for complex answers        |
 
 ## Project Structure
-- `opt_chunk.py`: Core implementation of the RAG retrieval pipeline with:
-    - `CachedEncoder`: Efficient embedding generation with caching.
-    - `Reranker`: Cross-encoder reranking component.
-    - `Chunker_RAG`: Main class handling chunking, embedding, and evaluation.
-- `fixed_token_chunker.py`: Implementation of the chunking algorithm.
-- `final.ipynb`: Jupyter notebook with detailed experiments and analysis.
-- `Results/`: Directory containing evaluation results and metrics.
+## Project Structure
+
+- `opt_chunk.py`: Core implementation of the RAG retrieval pipeline, including:
+    - `CachedEncoder`: Efficient embedding generation with caching to reduce redundant computations.
+    - `Reranker`: Cross-encoder reranking component to improve retrieval quality.
+    - `Chunker_RAG`: Main class managing chunking, embedding generation, and evaluation processes.
+- `fixed_token_chunker.py`: Implementation of the `FixedTokenChunker` algorithm for document chunking.
+- `final.ipynb`: Jupyter notebook containing detailed experiments, visualizations, and analysis.
+- `Results/`: Directory storing evaluation results, metrics, and performance summaries.
+- `requirements.txt`: File listing all dependencies required to run the project.
+- `Corpus/`: Directory containing the dataset, including:
+    - `questions_df.csv`: Queries and golden excerpts for evaluation.
+    - `state_of_the_union.md`: Contains the State of the Union addresses used as the document corpus.
+- `README.md`: Documentation and instructions for running the project.
+
 
 ## Running the Code
 
