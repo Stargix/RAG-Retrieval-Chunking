@@ -9,8 +9,6 @@ This implementation uses the **State of the Union** dataset, which contains:
 - Relevant queries
 - Golden excerpts (reference documents)
 
-The dataset provides structured formal language with varied topics in plain text format, making it ideal for chunking evaluation compared to alternatives like JSON-formatted chat logs or Wikitext with metadata.
-
 ## Components
 
 ### Chunking Algorithm
@@ -42,10 +40,35 @@ The dataset provides structured formal language with varied topics in plain text
 
 ## Evaluation Metrics
 
-### Precision and Recall
-- **Precision**: Measures the ratio of relevant tokens to all retrieved tokens.
-- **Recall**: Measures the ratio of relevant tokens retrieved to all relevant tokens.
-- **IoU (Intersection over Union)**: Combined metric balancing precision and recall.
+### Precision, Recall, and IoU
+
+We compute **IoU (Intersection over Union)** for a given query in the chunked corpus as:
+
+$$
+IoU_q(C) = \frac{|t_e \cap t_r|}{|t_e| + |t_r| - |t_e \cap t_r|}
+$$
+
+Here:
+- \( t_e \): Tokens in the golden excerpt (relevant tokens).
+- \( t_r \): Tokens in the retrieved chunks.
+
+In the numerator, each \( t_e \) among \( t_r \) is counted only once, while the denominator includes all retrieved tokens in \( |t_r| \). This adjustment accounts for redundancy when overlapping chunking strategies are used, ensuring a fair evaluation.
+
+Alongside IoU, we use **precision** and **recall** metrics at the token level, defined as follows:
+
+- **Precision**:
+$$
+Precision_q(C) = \frac{|t_e \cap t_r|}{|t_r|}
+$$
+Measures the ratio of relevant tokens to all retrieved tokens.
+
+- **Recall**:
+$$
+Recall_q(C) = \frac{|t_e \cap t_r|}{|t_e|}
+$$
+Measures the ratio of relevant tokens retrieved to all relevant tokens.
+
+These metrics provide a comprehensive evaluation of retrieval performance, balancing relevance and coverage.
 
 ## Experiments and Results
 
