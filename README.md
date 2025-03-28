@@ -57,15 +57,19 @@ In the numerator, each \( t_e \) among \( t_r \) is counted only once, while the
 Alongside IoU, we use **precision** and **recall** metrics at the token level, defined as follows:
 
 - **Precision**:
+
 $$
 Precision_q(C) = \frac{|t_e \cap t_r|}{|t_r|}
 $$
+
 Measures the ratio of relevant tokens to all retrieved tokens.
 
 - **Recall**:
+
 $$
 Recall_q(C) = \frac{|t_e \cap t_r|}{|t_e|}
 $$
+
 Measures the ratio of relevant tokens retrieved to all relevant tokens.
 
 These metrics provide a comprehensive evaluation of retrieval performance, balancing relevance and coverage.
