@@ -145,7 +145,7 @@ These metrics provide a comprehensive evaluation of retrieval performance, balan
 2. Ensure the queries and golden excerpts are available in `./Corpus/questions_df.csv`.
 
 ### Running Experiments
-1. Execute the notebook `final.ipynb` for detailed analysis and visualizations.
+1. Execute the notebook `report.ipynb` for detailed analysis and visualizations.
 2. For custom experiments, use the `Chunker_RAG` class.
 
 ### Hyperparameter Optimization
